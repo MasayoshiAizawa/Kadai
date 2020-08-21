@@ -2,7 +2,7 @@ import java.util.*;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
 
-public class kadai2 {
+public class Kadai2 {
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
 
@@ -17,7 +17,7 @@ public class kadai2 {
 		List<String> roomList = Arrays.asList(arrayLoom);//上記の配列をList化
 
 		List<String> roomListsub = roomList.stream()
-		.filter(Num -> Num.indexOf(butNumber) < 0)//部屋番号から嫌いな数字を取り除く
+		.filter(num -> num.indexOf(butNumber) < 0)//部屋番号から嫌いな数字を取り除く
 		.collect(Collectors.toList());//filterをしたものを再List化
 
 		roomListsub.stream().forEach(System.out::println);//条件に一致する部屋番号の表示
