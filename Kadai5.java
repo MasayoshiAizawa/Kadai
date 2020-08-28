@@ -3,40 +3,40 @@ import java.util.Scanner;
 public class Kadai5 {
  	public static void main(String args[]) {
 	
-		//’l‚Ìİ’è
-		int receiptNumber = 0;//ƒŒƒV[ƒg‚Ì–‡”
-		int purchaseAmount = 0;//‹àŠz‚Ì‡Œv
-		int pointAmount = 0;//ƒ|ƒCƒ“ƒg‚Ì‡Œv
-		int purchaseNumber = 0;//w“ü‹àŠz
-		String dayNumber;//w“ü‚µ‚½“ú‚É‚¿
+		//å€¤ã®è¨­å®š
+		int receiptNumber = 0;//ãƒ¬ã‚·ãƒ¼ãƒˆã®æšæ•°
+		int purchaseAmount = 0;//é‡‘é¡ã®åˆè¨ˆ
+		int pointAmount = 0;//ãƒã‚¤ãƒ³ãƒˆã®åˆè¨ˆ
+		int purchaseNumber = 0;//è³¼å…¥é‡‘é¡
+		String dateString;//è³¼å…¥ã—ãŸæ—¥ã«ã¡
 		
 		Scanner sc = new Scanner(System.in);
 		
 		String t = sc.nextLine();
-		receiptNumber = Integer.parseInt(t);//ƒŒƒV[ƒg‚Ì”‚ğ“ü—Í
+		receiptNumber = Integer.parseInt(t);//ãƒ¬ã‚·ãƒ¼ãƒˆã®æ•°ã‚’å…¥åŠ›
 		
 		for(int i = 0;i < receiptNumber;i++){
-			String st = sc.nextLine();//w“ü‚µ‚½“ú‚É‚¿‚Æw“ü‹àŠz‚ğ“ü—Í
+			String st = sc.nextLine();//è³¼å…¥ã—ãŸæ—¥ã«ã¡ã¨è³¼å…¥é‡‘é¡ã‚’å…¥åŠ›
 			String numberArray[] = st.split(" ");
-			dayNumber = numberArray[0];
+			dateString = numberArray[0];
 			purchaseNumber = Integer.parseInt(numberArray[1]);
-			double point = purchaseNumber/100;//w“ü‹àŠz‚©‚çƒ|ƒCƒ“ƒg‚ğZo
 			
-			if(dayNumber.indexOf("3") > -1){//3‚Ì‚Â‚­“ú‚É‚¿‚©”»•Ê
-				point *= 3;//3%‚Ìƒ|ƒCƒ“ƒg‚ÉŒvZ
+			double point = 0;//è³¼å…¥é‡‘é¡ã‹ã‚‰ã®ãƒã‚¤ãƒ³ãƒˆ
+			if(dayNumber.indexOf("3") > -1){//3ã®ã¤ãæ—¥ã«ã¡ã‹åˆ¤åˆ¥
+				point = purchaseNumber/100*3;//3%ã®ãƒã‚¤ãƒ³ãƒˆã«è¨ˆç®—
 			}
-			if(dayNumber.indexOf("5") > -1){//5‚Ì‚Â‚­“ú‚É‚¿‚©”»•Ê
-				point *= 5;//5%‚Ìƒ|ƒCƒ“ƒg‚ÉŒvZ
+			if(dayNumber.indexOf("5") > -1){//5ã®ã¤ãæ—¥ã«ã¡ã‹åˆ¤åˆ¥
+				point = purchaseNumber/100*5;//5%ã®ãƒã‚¤ãƒ³ãƒˆã«è¨ˆç®—
 			}
 			
-			pointAmount += (int)point;//ƒ|ƒCƒ“ƒg‚Ì¬”“_‚ğØ‚èÌ‚Ä‚Äƒ|ƒCƒ“ƒg‡Œv‚É’Ç‰Á
+			pointAmount += (int)point;//ãƒã‚¤ãƒ³ãƒˆã®å°æ•°ç‚¹ã‚’åˆ‡ã‚Šæ¨ã¦ã¦ãƒã‚¤ãƒ³ãƒˆåˆè¨ˆã«è¿½åŠ 
 			
-			purchaseAmount += purchaseNumber;//w“ü‹àŠz‚ğ‡Œv‹àŠz‚É’Ç‰Á
+			purchaseAmount += purchaseNumber;//è³¼å…¥é‡‘é¡ã‚’åˆè¨ˆé‡‘é¡ã«è¿½åŠ 
 		}
 		
 		sc.close();
 		
-		System.out.println(purchaseAmount + "‰~");
-		System.out.println(pointAmount + "ƒ|ƒCƒ“ƒg");
+		System.out.println(purchaseAmount + "å††");
+		System.out.println(pointAmount + "ãƒã‚¤ãƒ³ãƒˆ");
 	}	
 }		
