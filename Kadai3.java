@@ -2,22 +2,23 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Optional;
-import java.util.OptionalDouble;
 import java.util.Comparator;
+import java.util.stream.*;
+import java.util.*;
 
 public class Kadai3 {
  	public static void main(String args[]) {
 		
-		//’l‚Ìİ’è
-		int holidayNumber = 0;//‹x“ú‚Ì“ú”
-		int travelNumber = 0;//—·s‚Ì“ú’ö
-		int rainyPercentNumber = 0;//~…Šm—¦
-		List<Double> numberList = new ArrayList<Double>();//~…Šm—¦‚Ì•½‹Ï’l‚ğû”[‚·‚éList‚Ìì¬
+		//å€¤ã®è¨­å®š
+		int holidayNumber = 0;//ä¼‘æ—¥ã®æ—¥æ•°
+		int travelNumber = 0;//æ—…è¡Œã®æ—¥ç¨‹
+		int rainyPercentNumber = 0;//é™æ°´ç¢ºç‡
+		List<Double> numberList = new ArrayList<Double>();//é™æ°´ç¢ºç‡ã®å¹³å‡å€¤ã‚’åç´ã™ã‚‹Listã®ä½œæˆ
 		
 		Scanner sc = new Scanner(System.in);
 		
-		//‹x“ú‚Ì“ú”‚Æ—·s“ú’ö‚Ìİ’è
-		String t = sc.nextLine();//‹x“ú‚Ì“ú”‚Æ—·s“ú’ö‚Ì“ü—Í
+		//ä¼‘æ—¥ã®æ—¥æ•°ã¨æ—…è¡Œæ—¥ç¨‹ã®è¨­å®š
+		String t = sc.nextLine();//ä¼‘æ—¥ã®æ—¥æ•°ã¨æ—…è¡Œæ—¥ç¨‹ã®å…¥åŠ›
 		String holidaytravelArray[] = t.split(" ");
 		holidayNumber = Integer.parseInt(holidaytravelArray[0]);
 		travelNumber = Integer.parseInt(holidaytravelArray[1]);
@@ -25,7 +26,7 @@ public class Kadai3 {
 		int rainArray[] = new int[holidayNumber];
 		int travelArray[] = new int[holidayNumber];
 		
-		//—·s‚Ì“ú’ö‚Æ~…Šm—¦‚Ìİ’è
+		//æ—…è¡Œã®æ—¥ç¨‹ã¨é™æ°´ç¢ºç‡ã®è¨­å®š
 		for(int i = 0;i < holidayNumber;i++){
 			String st = sc.nextLine();
 			String travelrainArray[] = st.split(" ");
@@ -35,19 +36,19 @@ public class Kadai3 {
 		
 		sc.close();
 		
-		//~…Šm—¦‚Ì•½‹Ï’l‚ÌŒvZ‚ÆList‚É’Ç‰Á
+		//é™æ°´ç¢ºç‡ã®å¹³å‡å€¤ã®è¨ˆç®—ã¨Listã«è¿½åŠ 
 		int sum = 0;
-		for(int j = 0;j <= (holidayNumber - travelNumber);j++){
-			for(int w = 0;w < travelNumber;w++){
+		for(int j = 0;j < holidayNumber - travelNumber +1;j++){
+			for(int w = 1;w < travelNumber;w++){
 				rainArray[j] += rainArray[j+w];
 			}
 			double ave = rainArray[j]/travelNumber;
 			numberList.add(ave);
 		}
 		
-		//•½‹Ï’l‚ÌÅ¬’l
-		double minAve = numberList.stream().min(Comparator.naturalOrder()).getAsDouble();
+		//å¹³å‡å€¤ã®æœ€å°å€¤
+		double minAve = numberList.stream().min(Comparator.naturalOrder()).get();
 		int indextravel = numberList.IndexOf(minAve);
-		println(travelArray[indextravel] + " " + travelArray[indextravel + holidayNumber - 1]);
+		System.out.println(travelArray[indextravel] + " " + travelArray[indextravel + travelNumber - 1]);
 	}
 }
