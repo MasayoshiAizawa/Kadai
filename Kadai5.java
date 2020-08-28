@@ -25,10 +25,12 @@ public class Kadai5 {
 			if(dayNumber.indexOf("3") > -1){//3のつく日にちか判別
 				point = purchaseNumber/100*3;//3%のポイントに計算
 			}
-			if(dayNumber.indexOf("5") > -1){//5のつく日にちか判別
+			else if(dayNumber.indexOf("5") > -1){//5のつく日にちか判別
 				point = purchaseNumber/100*5;//5%のポイントに計算
 			}
-			
+			else{
+				point = purchaseNumber/100;
+			}
 			pointAmount += (int)point;//ポイントの小数点を切り捨ててポイント合計に追加
 			
 			purchaseAmount += purchaseNumber;//購入金額を合計金額に追加
