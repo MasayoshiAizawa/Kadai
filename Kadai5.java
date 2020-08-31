@@ -25,7 +25,7 @@ public class Kadai5 {
 			if(dayNumber.indexOf("3") > -1){//3のつく日にちか判別
 				point = purchaseNumber/100*3;//3%のポイントに計算
 			}
-			else if(dayNumber.indexOf("5") > -1){//5のつく日にちか判別
+			else if(dateString.indexOf("5") > -1){//5のつく日にちか判別
 				point = purchaseNumber/100*5;//5%のポイントに計算
 			}
 			else{
