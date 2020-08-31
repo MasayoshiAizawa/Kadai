@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Kadai6 extends Lee{
+public class Kadai6 extends Leet{
 	public static void main(String args[]){
 		Scanner sc = new Scanner(System.in);
 		//文字列の入力
@@ -11,18 +11,18 @@ public class Kadai6 extends Lee{
 		//文字列を一文字ごとに分割
 		String splitArray[] = str.split("");
 		
-		//一文字ごとにLee変換をし出力する
+		//一文字ごとにLeet変換をし出力する
 		for(String s : splitArray){
-			s = Lee.leechange(s);
+			s = Leet.leetchange(s);
 			System.out.print(s);
 		}
 	}
 }
-class Lee{
-	public static String leechange(String s) {
+class Leet{
+	public static String leetchange(String s) {
 	//文字の置換
 		if(s.equals("A")){//条件に一致するか判別
-			s = s.replace("A","4");//Lee変換を行う
+			s = s.replace("A","4");//Leet変換を行う
 		}
 		else if(s.equals("E")){
 			s = s.replace("E","3");
