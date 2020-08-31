@@ -22,7 +22,7 @@ public class Kadai5 {
 			purchaseNumber = Integer.parseInt(numberArray[1]);
 			
 			double point = 0;//購入金額からのポイント
-			if(dayNumber.indexOf("3") > -1){//3のつく日にちか判別
+			if(dateString.indexOf("3") > -1){//3のつく日にちか判別
 				point = purchaseNumber/100*3;//3%のポイントに計算
 			}
 			else if(dateString.indexOf("5") > -1){//5のつく日にちか判別
