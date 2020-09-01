@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class kadai1 {
+public class Kadai1 {
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
 
