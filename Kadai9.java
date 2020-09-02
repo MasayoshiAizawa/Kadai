@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Optional;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Kadai9 extends Change{
@@ -13,7 +13,7 @@ public class Kadai9 extends Change{
 		int firstNumber = 0;//最初の入力値
 		int secondNumber = 0;//二つ目の入力値
 		int sum = 0;//上記の値の合計
-		Map<Integer, String> numberMap = new HashMap<Integer, String>();//計算用の値と文字のMap
+		Map<Integer, String> numberMap = new LinkedHashMap<Integer, String>();//計算用の値と文字のMap
 		List<String> firstList = new ArrayList<String>();//文字を収納するList
 		List<String> secondList = new ArrayList<String>();//文字を収納するList
 		
@@ -74,7 +74,7 @@ public class Kadai9 extends Change{
 		//5進数で変換したものをそれぞれ対応する文字に変換
 		String splitArray[] = sumString.split("");
 		for(String st : splitArray){
-			si = Change.change(si);//文字に変換
+			st = Change.change(st);//文字に変換
 			System.out.print(st);
 		}
 	}
