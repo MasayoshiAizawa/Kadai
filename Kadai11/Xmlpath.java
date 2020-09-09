@@ -11,7 +11,7 @@ public class Xmlpath {
 		File[] files = file.listFiles();
 		List<T> XmlList = new ArrayList<>();
 		for (File f : files) {
-			XmlList.add(readXml(file.getPath(), cls));
+			XmlList.add(readXml(f.getPath(), cls));
 		}
 		return XmlList;
 	}
