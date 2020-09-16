@@ -19,14 +19,14 @@ public class Kadai13 {
 		}
 		
 		//同時実行する処理をリスト化
-		var list = List.of(
-			for(String proc : stringlist){
+		for(String proc : stringlist){
+			var list = List.of(
 				CompletableFuture.supplyAsync(() -> new ParallelProcessSub1(proc).process()),
 				CompletableFuture.supplyAsync(() -> new ParallelProcessSub2(proc).process()),
-				CompletableFuture.supplyAsync(() -> new ParallelProcessSub3(proc).process()),			
+				CompletableFuture.supplyAsync(() -> new ParallelProcessSub3(proc).process()),
 				CompletableFuture.supplyAsync(() -> System.out.println(proc + "実行済み"))
-			}
-		);
+			);
+		}
 		
 		//複数の処理を実行
 		CompletableFuture.allOf(list.toArray(new CompletableFuture[list.size()]))
