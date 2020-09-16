@@ -15,28 +15,25 @@ public class Kadai13 {
 		List<String> stringlist = new ArrayList<>();
 		
 		for(int i = 0; i < 5; i++){
-			stringlist.add("ˆ—‘ÎÛ" + (i +1));
+			stringlist.add("å‡¦ç†å¯¾è±¡" + (i +1));
 		}
 		
-		//“¯Às‚·‚éˆ—‚ğƒŠƒXƒg‰»
+		//åŒæ™‚å®Ÿè¡Œã™ã‚‹å‡¦ç†ã‚’ãƒªã‚¹ãƒˆåŒ–
 		var list = List.of(
 			for(String proc : stringlist){
-				ParallelProcessSub1 par1 = new ParallelProcessSub1(proc);
-				ParallelProcessSub2 par2 = new ParallelProcessSub2(proc);
-				ParallelProcessSub3 par3 = new ParallelProcessSub3(proc);
-				CompletableFuture.supplyAsync(() -> par1.process());
-				CompletableFuture.supplyAsync(() -> par2.process());
-				CompletableFuture.supplyAsync(() -> par3.process());
-				CompletableFuture.supplyAsync(() -> System.out.println(proc + "ÀsÏ‚İ"));
+				CompletableFuture.supplyAsync(() -> new ParallelProcessSub1(proc).process()),
+				CompletableFuture.supplyAsync(() -> new ParallelProcessSub2(proc).process()),
+				CompletableFuture.supplyAsync(() -> new ParallelProcessSub3(proc).process()),			
+				CompletableFuture.supplyAsync(() -> System.out.println(proc + "å®Ÿè¡Œæ¸ˆã¿"))
 			}
 		);
 		
-		//•¡”‚Ìˆ—‚ğÀs
+		//è¤‡æ•°ã®å‡¦ç†ã‚’å®Ÿè¡Œ
 		CompletableFuture.allOf(list.toArray(new CompletableFuture[list.size()]))
-			//‚·‚×‚ÄŠ®—¹Œã
+			//ã™ã¹ã¦å®Œäº†å¾Œ
 			.whenComplete((result,ex) -> {
 				if(ex == null){
-					//‡‚ÉŒ‹‰Ê‚ğo—Í
+					//é †ã«çµæœã‚’å‡ºåŠ›
 					list.forEach((future) -> {
 						System.out.println(future.get());
 					});
