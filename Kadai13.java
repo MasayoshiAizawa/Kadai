@@ -7,6 +7,9 @@ import java.util.concurrent.ExecutionException;
 
 public class Kadai13 {
 	public static void main (String args[]){
+
+		long startTime = System.currentTimeMillis();
+
 		//同時実行する処理のリスト化
 		List<CompletableFuture<String>> list = new ArrayList<>();
 		for(int i = 0; i < 5; i++){
@@ -17,11 +20,11 @@ public class Kadai13 {
 				list.add(CompletableFuture.supplyAsync(() -> new ParallelProcessSub3(proc).process()));
 		}
 
-	//複数の処理の実行	
-	CompletableFuture.allOf(
-		list.toArray(new CompletableFuture[list.size()]))
-		.whenComplete((result,ex) -> {
-			if(ex == null){
+		//複数の処理の実行
+		CompletableFuture.allOf(
+				list.toArray(new CompletableFuture[list.size()]))
+			.whenComplete((result,ex) -> {
+				if(ex == null){
 					//順に結果を表示
 					list.forEach((future) -> {
 						try {
@@ -34,5 +37,7 @@ public class Kadai13 {
 				System.out.println("err=" + ex);
 			}
 		});
+		long endTime = System.currentTimeMillis();
+		System.out.println("実行時間" + (endTime -startTime));
 	}
 }
